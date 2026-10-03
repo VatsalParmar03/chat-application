@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import { errorHandler } from "./middleware/errorHandler";
 
 const app = express();
 
@@ -12,5 +13,7 @@ app.get("/health", (_req, res) => {
     message: "Chat server is running",
   });
 });
+
+app.use(errorHandler);
 
 export default app;
