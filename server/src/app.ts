@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { errorHandler } from "./middleware/errorHandler";
+import { notFound } from "./middleware/notFound";
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.get("/health", (_req, res) => {
   });
 });
 
+app.use(notFound);
 app.use(errorHandler);
 
 export default app;
